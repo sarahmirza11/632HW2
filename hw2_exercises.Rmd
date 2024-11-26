@@ -1,5 +1,5 @@
 ---
-title: "HW2"
+title: "Sarah Mirza HW2"
 output:
   html_document:
     df_print: paged
@@ -53,8 +53,16 @@ Note that in the example solution, `dat` refers to the processed data set with v
 
 In this HW2, you should not define the `plot_cp()` in this Rmd. Instead, you should define it in `R/plot_cp.R` file and load it by `load_all()` function call before.
 
+Weidong primarily helped me with this HW :)
+
 You should be able to replicate the following plots:
+```{r loading packages}
+library(Rd2md)
+library(tidyverse)
+library(devtools)
+```
 ```{r}
+load_all()
 est <- read_csv("est.csv")
 dat <- read_csv("contraceptive_use.csv")
 dat <- dat %>%
@@ -80,7 +88,11 @@ In order to show the help file in the knitted Rmd, install the package Rd2md and
 
 ```{r}
 library(Rd2md)
+document()
 Rd2markdown(rdfile = "man/plot_cp.Rd", outfile = "plot_cp.md")
+```
+```{r child= "plot_cp.md"}
+
 ```
 
 # Exercise 3: GitHub
